@@ -1,0 +1,13 @@
+{
+  "name": "ai-orchestrator-demo-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "node ./scripts/run-tests.js"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0",
+    "typescript": "^5.8.3"
+  }
+}

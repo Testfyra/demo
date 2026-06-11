@@ -1,0 +1,54 @@
+name: AI Orchestrator Execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Pull request number"
+        required: true
+      execution_id:
+        description: "Execution ID"
+        required: true
+      recommended_checks:
+        description: "Comma-separated recommended checks"
+        required: true
+      provider:
+        description: "Execution provider"
+        required: true
+      environment:
+        description: "Target environment"
+        required: true
+        default: "dev"
+
+jobs:
+  orchestrator-execution:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print execution context
+        run: |
+          echo "PR Number: ${{ inputs.pr_number }}"
+          echo "Execution ID: ${{ inputs.execution_id }}"
+          echo "Provider: ${{ inputs.provider }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Recommended Checks: ${{ inputs.recommended_checks }}"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install orchestrator dependencies
+        working-directory: apps/api
+        run: npm install
+
+      - name: Run orchestrator checks
+        run: |
+          node .github/workflows/scripts/run-orchestrator-checks.js "${{ inputs.recommended_checks }}" ".orchestrator.yml"
+
+      - name: Complete execution
+        run: |
+          echo "AI Orchestrator execution completed"

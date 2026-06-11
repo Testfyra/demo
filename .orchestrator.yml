@@ -1,0 +1,51 @@
+version: 1
+
+project:
+  name: ai-orchestrator-demo-repo
+  defaultWorkingDirectory: apps/api
+
+checks:
+  build_validation:
+    description: Run build validation
+    workingDirectory: apps/api
+    commands:
+      - npm install
+      - npx tsc --noEmit --skipLibCheck
+
+  unit_tests:
+    description: Run unit tests
+    workingDirectory: apps/api
+    commands:
+      - npm test
+
+  dependency_scan:
+    description: Run dependency scan
+    workingDirectory: apps/api
+    commands:
+      - npm install
+      - npm audit --audit-level=high
+
+  security_scan:
+    description: Run security scan
+    workingDirectory: apps/api
+    commands:
+      - npm install
+      - npm audit --audit-level=high
+
+  documentation_review:
+    description: Documentation validation
+    workingDirectory: .
+    commands:
+      - echo "Documentation review completed"
+
+  config_validation:
+    description: Validate config files
+    workingDirectory: .
+    commands:
+      - echo "Config validation placeholder completed"
+
+  infra_validation:
+    description: Validate infra files
+    workingDirectory: .
+    commands:
+      - echo "Infrastructure validation placeholder completed"
