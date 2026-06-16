@@ -7,53 +7,45 @@ project:
 checks:
   dependency_install:
     description: Install project dependencies
-    workingDirectory: .
     commands:
       - npm install
 
   build_validation:
     description: Run TypeScript build validation
-    workingDirectory: .
     commands:
       - npm install
       - npm run build
 
   unit_tests:
     description: Run demo test scenarios
-    workingDirectory: .
     commands:
       - npm install
       - npm test
 
   artifact_generation:
     description: Build step placeholder for demo artifact lifecycle
-    workingDirectory: .
     commands:
       - npm install
       - npm run build
 
   coverage_collection:
     description: Coverage collection placeholder for the demo repo
-    workingDirectory: .
     commands:
       - echo "Coverage collection is not configured for the demo repo yet"
 
   test_reporting:
     description: Test reporting placeholder for the demo repo
-    workingDirectory: .
     commands:
       - echo "Test reporting is not configured for the demo repo yet"
 
   dependency_scan:
     description: Run dependency vulnerability scan
-    workingDirectory: .
     commands:
       - npm install
       - npm audit --audit-level=high
 
   security_scan:
     description: Run security scan
-    workingDirectory: .
     commands:
       - npm install
       - npm audit --audit-level=high
