@@ -1,24 +1,112 @@
 const fs = require('fs');
+const path = require('path');
 const { execSync } = require('child_process');
 
-function loadYamlModule() {
-  try {
-    return require('js-yaml');
-  } catch (_) {
-    return require('../../../apps/api/node_modules/js-yaml');
+function parseScalar(value) {
+  const trimmed = String(value || '').trim();
+
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1);
   }
+
+  return trimmed;
 }
 
-const yaml = loadYamlModule();
+function parseOrchestratorConfig(source) {
+  const config = {
+    project: {},
+    checks: {},
+  };
+
+  const lines = String(source)
+    .replace(/\r/g, '')
+    .split('\n');
+
+  let section = null;
+  let currentCheck = null;
+  let collectingCommands = false;
+
+  for (const rawLine of lines) {
+    const indent = rawLine.match(/^ */)?.[0]?.length || 0;
+    const trimmed = rawLine.trim();
+
+    if (!trimmed || trimmed.startsWith('#')) {
+      continue;
+    }
+
+    if (indent === 0 && trimmed.endsWith(':')) {
+      section = trimmed.slice(0, -1);
+      currentCheck = null;
+      collectingCommands = false;
+      continue;
+    }
+
+    if (section === 'project' && indent === 2) {
+      const separatorIndex = trimmed.indexOf(':');
+      if (separatorIndex === -1) {
+        continue;
+      }
+
+      const key = trimmed.slice(0, separatorIndex).trim();
+      const value = trimmed.slice(separatorIndex + 1).trim();
+      config.project[key] = parseScalar(value);
+      continue;
+    }
+
+    if (section === 'checks' && indent === 2 && trimmed.endsWith(':')) {
+      currentCheck = trimmed.slice(0, -1);
+      collectingCommands = false;
+      config.checks[currentCheck] = {
+        commands: [],
+      };
+      continue;
+    }
+
+    if (!currentCheck) {
+      continue;
+    }
+
+    if (indent === 4 && trimmed === 'commands:') {
+      collectingCommands = true;
+      continue;
+    }
+
+    if (indent === 4) {
+      const separatorIndex = trimmed.indexOf(':');
+      if (separatorIndex === -1) {
+        continue;
+      }
+
+      const key = trimmed.slice(0, separatorIndex).trim();
+      const value = trimmed.slice(separatorIndex + 1).trim();
+      config.checks[currentCheck][key] = parseScalar(value);
+      collectingCommands = false;
+      continue;
+    }
+
+    if (collectingCommands && indent >= 6 && trimmed.startsWith('- ')) {
+      config.checks[currentCheck].commands.push(
+        parseScalar(trimmed.slice(2)),
+      );
+    }
+  }
+
+  return config;
+}
 
 const recommendedChecks =
   process.argv[2]?.split(',').map((c) => c.trim()) || [];
 const configPath = process.argv[3] || '.orchestrator.yml';
+const resolvedConfigPath = path.resolve(configPath);
+const configDirectory = path.dirname(resolvedConfigPath);
 
 console.log('Recommended checks:', recommendedChecks);
 
-const config = yaml.load(
-  fs.readFileSync(configPath, 'utf8'),
+const config = parseOrchestratorConfig(
+  fs.readFileSync(resolvedConfigPath, 'utf8'),
 );
 
 for (const check of recommendedChecks) {
@@ -29,10 +117,12 @@ for (const check of recommendedChecks) {
     continue;
   }
 
-  const workingDirectory =
+  const workingDirectory = path.resolve(
+    configDirectory,
     definition.workingDirectory ||
-    config.project?.defaultWorkingDirectory ||
-    '.';
+      config.project?.defaultWorkingDirectory ||
+      '.',
+  );
 
   console.log(`Running check: ${check}`);
   console.log(`Working directory: ${workingDirectory}`);
@@ -47,4 +137,4 @@ for (const check of recommendedChecks) {
   }
 }
 
-console.log('All orchestrator checks completed.');
+console.log('All orchestrator checks completed.');  
