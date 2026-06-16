@@ -5,47 +5,73 @@ project:
   defaultWorkingDirectory: apps/api
 
 checks:
-  build_validation:
-    description: Run build validation
-    workingDirectory: apps/api
+  dependency_install:
+    description: Install project dependencies
+    workingDirectory: .
     commands:
       - npm install
-      - npx tsc --noEmit --skipLibCheck
+
+  build_validation:
+    description: Run TypeScript build validation
+    workingDirectory: .
+    commands:
+      - npm install
+      - npm run build
 
   unit_tests:
-    description: Run unit tests
-    workingDirectory: apps/api
+    description: Run demo test scenarios
+    workingDirectory: .
     commands:
+      - npm install
       - npm test
 
+  artifact_generation:
+    description: Build step placeholder for demo artifact lifecycle
+    workingDirectory: .
+    commands:
+      - npm install
+      - npm run build
+
+  coverage_collection:
+    description: Coverage collection placeholder for the demo repo
+    workingDirectory: .
+    commands:
+      - echo "Coverage collection is not configured for the demo repo yet"
+
+  test_reporting:
+    description: Test reporting placeholder for the demo repo
+    workingDirectory: .
+    commands:
+      - echo "Test reporting is not configured for the demo repo yet"
+
   dependency_scan:
-    description: Run dependency scan
-    workingDirectory: apps/api
+    description: Run dependency vulnerability scan
+    workingDirectory: .
     commands:
       - npm install
       - npm audit --audit-level=high
 
   security_scan:
     description: Run security scan
-    workingDirectory: apps/api
+    workingDirectory: .
     commands:
       - npm install
       - npm audit --audit-level=high
 
   documentation_review:
     description: Documentation validation
-    workingDirectory: .
+    workingDirectory: ..
     commands:
       - echo "Documentation review completed"
 
   config_validation:
     description: Validate config files
-    workingDirectory: .
+    workingDirectory: ..
     commands:
       - echo "Config validation placeholder completed"
 
   infra_validation:
     description: Validate infra files
-    workingDirectory: .
+    workingDirectory: ..
     commands:
       - echo "Infrastructure validation placeholder completed"
