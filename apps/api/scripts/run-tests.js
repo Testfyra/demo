@@ -6,6 +6,7 @@ if (shouldFail) {
 }
 
 
+
 console.log('Unit tests passed');
 console.log('Integration tests passed');
 console.log('Coverage: 84%');
