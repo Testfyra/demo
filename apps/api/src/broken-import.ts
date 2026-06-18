@@ -2,7 +2,7 @@
 import { missing } from './missing-module';
 import {anything} from '/anything'
 import { closed } from './missingdfsd-module';
-
+import {nothing} from './nothing'
 import {naythoing} from './anything' dfsdf
 const a=b;
 console.log(a)
