@@ -1,5 +1,6 @@
 import {bug} from ''
 console.log(nonexistent);
+console.log(nothing)
 const shouldFail = process.env.DEMO_FAIL_TESTS === 'true';
 
 if (shouldFail) {
