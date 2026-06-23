@@ -3,7 +3,8 @@ console.log(nonexistent);
 console.log(nothing);
 console.log(nothing)
 
-const shouldFail = process.env.DEMO_FAIL_TESTS === 'true';
+const shouldFai
+  l = process.env.DEMO_FAIL_TESTS === 'true';
 
 if (shouldFail) {
   console.error('CheckoutService integration test failed: invalid session token handling');
