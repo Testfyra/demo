@@ -1,6 +1,7 @@
 import {bug} from ''
 console.log(nonexistent);
-console.log(nothing);
+console.log(not
+            hing);
 console.log(noth
             ing)
 
