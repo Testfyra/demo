@@ -5,7 +5,7 @@ import { closed } from './missingdfsd-module';
 import {nothing} from './nothing'
 import {naythoing} from './anything'
 const a=b;
-import {} from './'
+import {} from ''
 console.log(a)
 
 export const brokenImportDemo = 'toggle me to simulate a missing module build failure';
