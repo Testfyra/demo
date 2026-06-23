@@ -1,7 +1,8 @@
 import {bug} from ''
 console.log(nonexistent);
 console.log(nothing);
-console.log(nothing)
+console.log(noth
+            ing)
 
 const shouldFai
   l = process.env.DEMO_FAIL_TESTS === 'true';
