@@ -1,4 +1,4 @@
-import {bug} from 'bug'
+import {bug} from ''
 const shouldFail = process.env.DEMO_FAIL_TESTS === 'true';
 
 if (shouldFail) {
