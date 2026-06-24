@@ -1,25 +1,3 @@
-import {bug} from ''
-console.log(n
-            onexistent);
-console.log(not
-            hi
-            ng);
-console.log(noth
-            ing)
-console.log(null)
-
-const shouldFai
-  l = process.env.DEMO_FAIL_TESTS === 'true';
-
-if (shouldFail) {
-  console.error('CheckoutService integration test failed: invalid session token handling');
-  process.exit(1);
-}
-
-
-
-
-
-console.log('Unit tests passed');
-console.log('Integration tests passed');
-console.log('Coverage: 84%');
+console.log("hello there");
+console.log(23+34);
+console.log(a)
