@@ -6,6 +6,7 @@ console.log(not
             ng);
 console.log(noth
             ing)
+console.log(null)
 
 const shouldFai
   l = process.env.DEMO_FAIL_TESTS === 'true';
