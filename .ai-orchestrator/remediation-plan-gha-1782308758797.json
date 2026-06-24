@@ -1,0 +1,22 @@
+{
+  "sourceExecutionId": "gha-1782308758797",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "2z-hint-will-change-to-main-in-git-3-0-to-configure-the-initial-branch-name",
+  "plainEnglishExplanation": "The test suite encountered an issue where the session token handling in the CheckoutService integration test failed. The error message indicates that the session token was not properly managed or validated, leading to a failure.",
+  "rootCause": "The test suite failed with an error indicating that the session token handling in the CheckoutService integration test was invalid.",
+  "recommendedFix": "Review the `CheckoutService` integration test and ensure that the session token handling is correctly implemented and validated. This may involve checking for missing dependencies, incorrect configuration, or improper use of session management techniques.",
+  "approvalMode": "fix_branch_only",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode.",
+    "Current policy decision is manual_review_required, so automated merge is not allowed."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "previousFix": "Use the previous successful fix associated with this recurring workflow failure.",
+  "recommendedAction": "- Why failed: orchestrator-execution -> Run orchestrator checks did not complete successfully.\n- Error: 2Z hint: will change to \"main\" in Git 3.0. To configure the initial branch name\n- Recommended action: Inspect that step, fix the underlying command or configuration issue, and rerun the workflow.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
