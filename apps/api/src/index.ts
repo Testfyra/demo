@@ -1,4 +1,5 @@
-export function greet(name: string) {
+export function gre
+  et(name: string) {
   re
     turn `hello ${name}`;
 }
