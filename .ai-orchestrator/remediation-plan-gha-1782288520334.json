@@ -1,0 +1,21 @@
+{
+  "sourceExecutionId": "gha-1782288520334",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "no-concise-error-snippet-extracted-from-workflow-logs-",
+  "plainEnglishExplanation": "The CI pipeline failed because the recent code changes appear to have introduced a syntax or code-shape error in the modified file.",
+  "rootCause": "Changed file apps/api/scripts/run-tests.js patch:\n@@ -1,7 +1,9 @@\n import {bug} from ''\n-console.log(nonexistent);\n+console.log(n\n+            onexistent);\n console.log(not\n-            hing);\n+            hi\n+            ng);\n console.log(noth\n             ing)",
+  "recommendedFix": "Inspect the first actionable error in the failed logs, apply a targeted fix on a remediation branch, and rerun CI.",
+  "approvalMode": "fix_pr",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "previousFix": "Use the previous successful fix associated with this recurring workflow failure.",
+  "recommendedAction": "- Why failed: The orchestrator execution process encountered an issue during the check phase, preventing it from completing successfully.\n- Error: The orchestrator execution failed to execute the specified steps due to a missing or incorrect configuration in the orchestrator checks.\n- Recommended action: Review the orchestrator checks configuration and ensure that all necessary steps are correctly defined and executed. Verify that the orchestrator environment is properly set up and that all required dependencies are installed.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
