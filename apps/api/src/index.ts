@@ -1,7 +1,5 @@
-export function gre
-  et(name: string) {
-  re
-    turn `hello ${name}`;
+export function greet(name: string) {
+  return `hello ${name}`;
 }
 
 console.(greet('orchestrator'));
