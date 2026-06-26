@@ -1,7 +1,8 @@
 // Uncomment this import to intentionally create a TS2307 failure for demos.
 import { missing } from './missing-module'; 
 import {anything} from '/anything'
-import { clos
+import { cl
+        os
         ed } from './missingdfsd-module';
 import {nothing} from './nothing'
 
