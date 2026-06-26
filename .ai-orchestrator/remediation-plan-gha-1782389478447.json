@@ -1,0 +1,28 @@
+{
+  "sourceExecutionId": "gha-1782389478447",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "development-the-just-created-branch-can-be-renamed-via-this-command-",
+  "plainEnglishExplanation": "The commit introduces a syntax error in the export function, causing the build to fail.",
+  "rootCause": "The commit 'apps/api/src/index.ts' contains a syntax error in the export function.",
+  "recommendedFix": "Correct the syntax error in the `export function greet(name: string) { ... }` line. Ensure that all curly braces are properly closed and that there are no missing semicolons or other syntax errors.",
+  "approvalMode": "fix_branch_only",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "previousFix": "Use the previous successful fix associated with this recurring workflow failure.",
+  "recommendedAction": "- Why failed: The orchestrator execution failed to run the check for the development branch.\n- Error: The error message indicates that the branch name 'development' does not exist in the repository. This is preventing the orchestrator from proceeding with the necessary checks.\n- Recommended action: Ensure that the branch 'development' exists in your repository before running the orchestrator checks. You can create the branch using the command `git checkout -b development`.",
+  "autoFixSummary": "Fixed syntax error in export function",
+  "autoFixFiles": [
+    {
+      "path": "apps/api/src/index.ts",
+      "rationale": "The commit 'apps/api/src/index.ts' contains a syntax error in the export function. The correct syntax is to use curly braces `{}` for block statements and ensure that all curly braces are properly closed and that there are no missing semicolons or other syntax errors."
+    }
+  ],
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
