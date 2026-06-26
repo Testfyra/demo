@@ -4,7 +4,8 @@ import {anything} from '/anything'
 import { cl
         os
         ed } from './missingdfsd-module';
-import {nothing} from './nothing'
+import {not
+        hing} from './nothing'
 
 import {naythoing} from './anything'
 const a=b;
