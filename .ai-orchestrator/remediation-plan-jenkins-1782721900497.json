@@ -1,0 +1,21 @@
+{
+  "sourceExecutionId": "jenkins-1782721900497",
+  "repository": "Testfyra/demo",
+  "originalBranch": "dev",
+  "failureSignature": "2026-06-29t08-31-57-959z-src-app-module-ts-8-3-error-ts1146-declaration-expected",
+  "plainEnglishExplanation": "The build process encountered a runtime error due to the undefined variable 'variabledoesnotexist'. This caused the build to fail and prevent the deployment of the application.",
+  "rootCause": "The command `npm run build` failed with an error: 'variabledoesnotexist' is not defined.",
+  "recommendedFix": "Add the missing variable 'variabledoesnotexist' to the codebase. For example, you can add it as a global variable or define it within the scope where it is used.",
+  "approvalMode": "fix_branch_only",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode.",
+    "Current policy decision is manual_review_required, so automated merge is not allowed."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "Inspect the referenced source file, correct the invalid statement introduced in the patch, and rerun the build validation.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
