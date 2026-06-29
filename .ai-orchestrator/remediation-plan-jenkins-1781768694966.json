@@ -1,0 +1,21 @@
+{
+  "sourceExecutionId": "jenkins-1781768694966",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "2026-06-18t07-45-04-851z-commit-message-add-intentional-import-for-ts2307-demo",
+  "plainEnglishExplanation": "The commit message indicates that a new file named `TS2307demo.ts` was added to the repository, which contains an intentional import statement causing a TypeScript error.",
+  "rootCause": "[2026-06-18T07:45:04.851Z] Commit message: \"Add intentional import for TS2307 demo\"",
+  "recommendedFix": "Ensure that all necessary imports are correctly specified in the `TS2307demo.ts` file. Verify that the import statements match the actual dependencies required by the codebase.",
+  "approvalMode": "fix_branch_only",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode.",
+    "Current policy decision is manual_review_required, so automated merge is not allowed."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "Add the missing import statement at the top of `ts2307.ts`. For example:",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
