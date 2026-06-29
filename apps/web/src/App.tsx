@@ -17,7 +17,7 @@ type Overview = {
 };
 
 const API_BASE_URL = 'http://localhost:3001';
-
+console.log(variabledoesnotexist)
 export function App() {
   const [overview, setOverview] = useState<Overview | null>(null);
   const [loading, setLoading] = useState(true);
