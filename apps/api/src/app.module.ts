@@ -6,4 +6,5 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [AppService],
 })
+  console.log(something);
 export class AppModule {}
