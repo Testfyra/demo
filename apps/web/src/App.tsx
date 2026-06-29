@@ -18,7 +18,8 @@ type Overview = {
 
 const API_BASE_URL = 'http://localhost:3001';
 console.log(variabledoesnotexist)
-export function App() {
+export function App(console.log(another)
+) {
   const [overview, setOverview] = useState<Overview | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
