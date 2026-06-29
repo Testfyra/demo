@@ -1,0 +1,21 @@
+{
+  "sourceExecutionId": "jenkins-1781165265150",
+  "repository": "Testfyra/demo",
+  "originalBranch": "dev",
+  "failureSignature": "build-step-execute-shell-marked-build-as-failure",
+  "plainEnglishExplanation": "The Jenkins job failed because the 'Execute shell' step was marked as a failure.",
+  "rootCause": "Build step 'Execute shell' marked build as failure",
+  "recommendedFix": "Check the logs for any errors or warnings that occurred during the execution of the 'Execute shell' step. Ensure that the command is correctly written and that all necessary dependencies are installed.",
+  "approvalMode": "recommendation_only",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode.",
+    "Current policy decision is unknown, so automated merge is not allowed."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "Inspect the first actionable error in the failed logs, apply a targeted fix on a remediation branch, and rerun CI.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
