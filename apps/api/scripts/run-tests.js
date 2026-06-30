@@ -4,6 +4,7 @@ async function main() {
   const { AppService } = require('../dist/app.service.js');
   const service = new AppService();
   console.log(anything);
+  hgf
   console.log(nodfsdfs);
   const health = service.getHealth();
   assert.equal(health.ok, true);
