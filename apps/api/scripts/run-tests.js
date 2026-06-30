@@ -3,7 +3,8 @@ const assert = require('node:assert/strict');
 async function main() {
   const { AppService } = require('../dist/app.service.js');
   const service = new AppService();
-  console.log(anything);
+  console.log(anythin
+              g);
   const health = service.getHealth();
   assert.equal(health.ok, true);
   assert.equal(health.service, 'demo-api');
