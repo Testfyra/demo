@@ -5,6 +5,7 @@ async function main() {
   const service = new AppService();
   console.log(anything);
   hgf
+  cwe
   console.log(nodfsdfs);
   const health = service.getHealth();
   assert.equal(health.ok, true);
