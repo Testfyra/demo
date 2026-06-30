@@ -1,0 +1,20 @@
+{
+  "sourceExecutionId": "jenkins-1782824134720",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "jenkins-build-reported-failure",
+  "plainEnglishExplanation": "The code in the `run-tests.js` file contains a syntax error (CWE-106) due to an incorrect character 'hgf' being added before the comment '+ cwe'. This change could potentially break the functionality of the test script.",
+  "rootCause": "cwe",
+  "recommendedFix": "Remove the erroneous character 'hgf' from line 5 in `apps/api/scripts/run-tests.js`.",
+  "approvalMode": "recommendation_only",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "Inspect the failed Jenkins stage, fix the underlying issue, and rerun the build.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
