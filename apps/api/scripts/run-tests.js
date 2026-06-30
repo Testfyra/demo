@@ -4,13 +4,13 @@ async function main() {
   const { AppService } = require('../dist/app.service.js');
   const service = new AppService();
   console.log(anything);
-  hgf
-  cwe
+  hgdfxxdxerr
   console.log(nodfsdfs);
   const health = service.getHealth();
   assert.equal(health.ok, true);
   assert.equal(health.service, 'demo-api');
   assert.ok(health.timestamp);
+  console.log(done nothing);
 
   const overview = service.getOverview();
   assert.equal(overview.product, 'AI Orchestrator Demo');
