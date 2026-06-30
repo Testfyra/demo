@@ -1,0 +1,20 @@
+{
+  "sourceExecutionId": "jenkins-1782821962840",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "jenkins-build-reported-failure",
+  "plainEnglishExplanation": "The CI pipeline failed because the recent code changes appear to have introduced a syntax or code-shape error in the modified file.",
+  "rootCause": "Changed file apps/api/scripts/run-tests.js patch:\n@@ -4,6 +4,7 @@ async function main() {\n   const { AppService } = require('../dist/app.service.js');\n   const service = new AppService();\n   console.log(anything);\n+  hgf\n   console.log(nodfsdfs);\n   const health = service.getHealth();\n   assert.equal(health.ok, true);",
+  "recommendedFix": "Inspect the first actionable error in the failed logs, apply a targeted fix on a remediation branch, and rerun CI.",
+  "approvalMode": "fix_pr",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "Inspect the failed Jenkins stage, fix the underlying issue, and rerun the build.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
