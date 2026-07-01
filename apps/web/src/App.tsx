@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 console.log(nothing);
-type Overview = {
+type Overv
+  iew = {
   product: string;
   summary: string;
   metrics: {
