@@ -2,7 +2,8 @@ const assert = require('node:assert/strict');
 
 async function main() {
   const { AppService } = require('../dist/app.service.js');
-  const service = new AppService();
+  const service = new App
+    Service();
   console.log(anything);
   hgdfxxdxerr
   console.log(nodfsdfs);
