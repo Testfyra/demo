@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+console.log(nothing);
 type Overview = {
   product: string;
   summary: string;
