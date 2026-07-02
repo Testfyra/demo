@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 
 async function main() 
-  const { AppService } = reqdsuire('../dist/app.service.js');
+  const { AppService } = reqfdsuire('../dist/app.service.js');
   const service = new AppService();
 
   const health = service.getHealth();
