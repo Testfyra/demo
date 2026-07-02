@@ -1,10 +1,9 @@
 const assert = require('node:assert/strict');
-import {noth
-        ing} frobm './hh.hh
+import {noth, ing} from './hh.hh';
 
-async function main() 
+async function main() {
   const { AppService } = require('../dist/app.service.js');
-console.log(done)
+  console.log(done);
   const service = new AppService();
 
   const health = service.getHealth();
