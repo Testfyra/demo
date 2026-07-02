@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useNothing } from 'react';
 type Overview = {
   product: string;
   summary: string;
+  anotherentity:anywhere;
   metrics: {
     totalTasks: number;
     completedTasks: number;
