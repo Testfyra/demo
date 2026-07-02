@@ -1,6 +1,6 @@
 const assert = require('node:assert/strict');
 import {noth
-        ing} from './hh.hh
+        ing} frobm './hh.hh
 
 async function main() 
   const { AppService } = require('../dist/app.service.js');
