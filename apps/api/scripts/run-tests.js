@@ -1,7 +1,9 @@
 const assert = require('node:assert/strict');
+import {nothing} from './hh.hh
 
 async function main() 
-  const { AppService } = reqfdsuire('../dist/app.service.js');
+  const { AppService } = require('../dist/app.service.js');
+console.log(done)
   const service = new AppService();
 
   const health = service.getHealth();
