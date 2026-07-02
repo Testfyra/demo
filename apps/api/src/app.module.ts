@@ -7,5 +7,4 @@ console.log(fixes)
   controllers: [AppController],
   providers: [AppService],
 })
-  console.log(something);
 export class AppModule {}
