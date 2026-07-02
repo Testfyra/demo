@@ -2,6 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+const BASELINE_CHECKS = [
+  'api_build_validation',
+  'api_unit_tests',
+  'web_build_validation',
+];
+
 function parseScalar(value) {
   const trimmed = String(value || '').trim();
 
@@ -97,24 +103,29 @@ function parseOrchestratorConfig(source) {
   return config;
 }
 
-const recommendedChecks =
-  process.argv[2]?.split(',').map((c) => c.trim()) || [];
+const recommendedChecks = (process.argv[2] || '')
+  .split(',')
+  .map((c) => c.trim())
+  .filter(Boolean);
 const configPath = process.argv[3] || '.orchestrator.yml';
 const resolvedConfigPath = path.resolve(configPath);
 const configDirectory = path.dirname(resolvedConfigPath);
-
-console.log('Recommended checks:', recommendedChecks);
 
 const config = parseOrchestratorConfig(
   fs.readFileSync(resolvedConfigPath, 'utf8'),
 );
 
-for (const check of recommendedChecks) {
+const checksToRun = [...new Set([...BASELINE_CHECKS, ...recommendedChecks])];
+
+console.log('Baseline checks:', BASELINE_CHECKS);
+console.log('Recommended checks:', recommendedChecks);
+console.log('Final checks to run:', checksToRun);
+
+for (const check of checksToRun) {
   const definition = config.checks?.[check];
 
   if (!definition) {
-    console.log(`Skipping unknown check: ${check}`);
-    continue;
+    throw new Error(`Unknown check in execution set: ${check}`);
   }
 
   const workingDirectory = path.resolve(

@@ -5,6 +5,39 @@ project:
   defaultWorkingDirectory: apps/api
 
 checks:
+  api_dependency_install:
+    description: Install API dependencies
+    workingDirectory: apps/api
+    commands:
+      - npm install
+
+  api_build_validation:
+    description: Run API TypeScript build validation
+    workingDirectory: apps/api
+    commands:
+      - npm install
+      - npm run build
+
+  api_unit_tests:
+    description: Run API demo test scenarios
+    workingDirectory: apps/api
+    commands:
+      - npm install
+      - npm test
+
+  web_dependency_install:
+    description: Install web dependencies
+    workingDirectory: apps/web
+    commands:
+      - npm install
+
+  web_build_validation:
+    description: Run web production build validation
+    workingDirectory: apps/web
+    commands:
+      - npm install
+      - npm run build
+
   dependency_install:
     description: Install project dependencies
     commands:
