@@ -1,9 +1,8 @@
-import { useEffect, useState,useNothing } from 'react';
+import { useEffect, useState } from 'react';
+
 type Overview = {
   product: string;
   summary: string;
-  anotherentity:anywhere;
-        here:temp;
   metrics: {
     totalTasks: number;
     completedTasks: number;
@@ -18,6 +17,7 @@ type Overview = {
 };
 
 const API_BASE_URL = 'http://localhost:3001';
+
 export function App() {
   const [overview, setOverview] = useState<Overview | null>(null);
   const [loading, setLoading] = useState(true);
