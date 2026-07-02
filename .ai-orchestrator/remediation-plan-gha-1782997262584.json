@@ -1,0 +1,21 @@
+{
+  "sourceExecutionId": "gha-1782997262584",
+  "repository": "Testfyra/demo",
+  "originalBranch": "dev",
+  "failureSignature": "2026-07-02t13-01-21-7499306z-syntaxerror-unexpected-identifier-ing-",
+  "plainEnglishExplanation": "The CI pipeline failed because a concrete build or validation error stopped the workflow before it could complete successfully.",
+  "rootCause": "2026-07-02T13:01:21.7499306Z SyntaxError: Unexpected identifier 'ing'",
+  "recommendedFix": "- Why failed: orchestrator-execution -> Run orchestrator checks failed because the CI pipeline failed because a concrete build or validation error stopped the workflow before it could complete successfully.\n- Error: 2026-07-02T13:01:21.7499306Z SyntaxError: Unexpected identifier 'ing'\n- Recommended action: Inspect the first actionable error in the failed logs, apply a targeted fix on a remediation branch, and rerun CI.",
+  "approvalMode": "fix_pr",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode.",
+    "Current policy decision is manual_review_required, so automated merge is not allowed."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "- Why failed: orchestrator-execution -> Run orchestrator checks failed because the CI pipeline failed because a concrete build or validation error stopped the workflow before it could complete successfully.\n- Error: 2026-07-02T13:01:21.7499306Z SyntaxError: Unexpected identifier 'ing'\n- Recommended action: Inspect the first actionable error in the failed logs, apply a targeted fix on a remediation branch, and rerun CI.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
