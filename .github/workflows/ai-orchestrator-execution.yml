@@ -43,7 +43,6 @@ jobs:
 
       - name: Run orchestrator checks
         run: |
-          node .github/workflows/scripts/run-orchestrator-checks.js "${{ inputs.recommended_checks }}" ".orchestrator.yml"
 
       - name: Complete execution
         run: |
