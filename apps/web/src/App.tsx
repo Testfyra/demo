@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-console.log(nothing);
-type Overv
-  iew = {
+type Overview = {
   product: string;
   summary: string;
   metrics: {
@@ -19,6 +17,7 @@ type Overv
 
 const API_BASE_URL = 'http://localhost:3001';
 console.log(variabledoesnotexist)
+console.log(anotherone)
 export function App(console.log(another)
 ) {
   const [overview, setOverview] = useState<Overview | null>(null);
