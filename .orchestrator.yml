@@ -25,6 +25,13 @@ checks:
       - npm install
       - npm test
 
+  integration_tests:
+    description: Run demo integration checks against the API package
+    workingDirectory: apps/api
+    commands:
+      - npm install
+      - npm test
+
   web_dependency_install:
     description: Install web dependencies
     workingDirectory: apps/web
