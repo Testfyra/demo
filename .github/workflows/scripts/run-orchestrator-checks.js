@@ -8,6 +8,10 @@ const BASELINE_CHECKS = [
   'web_build_validation',
 ];
 
+const CHECK_ALIASES = {
+  integration_tests: 'api_unit_tests',
+};
+
 function parseScalar(value) {
   const trimmed = String(value || '').trim();
 
@@ -122,10 +126,17 @@ console.log('Recommended checks:', recommendedChecks);
 console.log('Final checks to run:', checksToRun);
 
 for (const check of checksToRun) {
-  const definition = config.checks?.[check];
+  const resolvedCheck = config.checks?.[check]
+    ? check
+    : CHECK_ALIASES[check];
+  const definition = config.checks?.[resolvedCheck];
 
   if (!definition) {
     throw new Error(`Unknown check in execution set: ${check}`);
+  }
+
+  if (resolvedCheck !== check) {
+    console.log(`Resolved check alias: ${check} -> ${resolvedCheck}`);
   }
 
   const workingDirectory = path.resolve(
