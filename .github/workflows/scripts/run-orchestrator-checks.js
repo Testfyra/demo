@@ -108,11 +108,49 @@ function parseOrchestratorConfig(source) {
   return config;
 }
 
-const recommendedChecks = (process.argv[2] || '')
-  .split(',')
-  .map((c) => c.trim())
-  .filter(Boolean);
-const configPath = process.argv[3] || '.orchestrator.yml';
+function parseCliArguments(argv) {
+  const args = argv.slice(2).filter(Boolean);
+  const defaultConfigPath = '.orchestrator.yml';
+
+  let configPath = defaultConfigPath;
+  const recommendedChecks = [];
+
+  for (const arg of args) {
+    const trimmed = String(arg).trim();
+
+    if (!trimmed) {
+      continue;
+    }
+
+    if (
+      trimmed.endsWith('.yml') ||
+      trimmed.endsWith('.yaml') ||
+      fs.existsSync(path.resolve(trimmed))
+    ) {
+      configPath = trimmed;
+      continue;
+    }
+
+    for (const token of trimmed.split(',')) {
+      const check = token.trim();
+
+      if (!check) {
+        continue;
+      }
+
+      if (check.endsWith('run-orchestrator-checks.js')) {
+        console.warn(`Ignoring unexpected runner script argument: ${check}`);
+        continue;
+      }
+
+      recommendedChecks.push(check);
+    }
+  }
+
+  return { recommendedChecks, configPath };
+}
+
+const { recommendedChecks, configPath } = parseCliArguments(process.argv);
 const resolvedConfigPath = path.resolve(configPath);
 const configDirectory = path.dirname(resolvedConfigPath);
 
