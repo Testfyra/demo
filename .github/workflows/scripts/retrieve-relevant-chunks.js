@@ -9,8 +9,6 @@ const manifestPath = path.resolve(
 const errorInput = process.argv[3] || '';
 const changedFilesInput = process.argv[4] || '';
 const limit = Number(process.argv[5] || 8);
-const packageHint = process.argv[6] || '';
-const checkNameHint = process.argv[7] || '';
 
 function normalizePath(filePath) {
   return filePath.split(path.sep).join('/');
@@ -79,15 +77,7 @@ function scoreChunk(chunk, context) {
   }
 
   if (context.targetPackage && chunk.package === context.targetPackage) {
-    score += 45;
-  }
-
-  if (
-    context.targetPackage &&
-    chunk.package &&
-    chunk.package !== context.targetPackage
-  ) {
-    score -= 20;
+    score += 25;
   }
 
   if (context.directPaths.size > 0) {
@@ -120,20 +110,6 @@ function scoreChunk(chunk, context) {
     score += 15;
   }
 
-  if (
-    /dependency_scan|npm audit|vulnerab|ghsa-|severity:/i.test(
-      `${context.errorText}\n${context.checkName || ''}`,
-    )
-  ) {
-    if (/package-lock\.json|package\.json/.test(chunk.path)) {
-      score += 40;
-    }
-
-    if (/node_modules\//.test(chunk.text)) {
-      score += 12;
-    }
-  }
-
   return score;
 }
 
@@ -161,7 +137,7 @@ function main() {
     ...extractFilePaths(errorInput),
     ...changedFiles,
   ]);
-  const targetPackage = packageHint || inferPackage(errorInput);
+  const targetPackage = inferPackage(errorInput);
   const keyTerms = buildKeyTerms(errorInput);
 
   const scored = chunks
@@ -172,7 +148,6 @@ function main() {
         targetPackage,
         keyTerms,
         errorText: errorInput,
-        checkName: checkNameHint,
       }),
       chunk,
     }))
