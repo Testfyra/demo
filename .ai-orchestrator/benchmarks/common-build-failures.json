@@ -1,0 +1,200 @@
+[
+  {
+    "id": "ts-missing-comma-web",
+    "category": "typescript_build_failure",
+    "check_name": "web_build_validation",
+    "package": "apps/web",
+    "changed_files": ["apps/web/src/App.tsx"],
+    "error_text": "src/App.tsx(23,28): error TS1005: ',' expected during npm run build in apps/web",
+    "expected_paths": ["apps/web/src/App.tsx", "apps/web/src/main.tsx"]
+  },
+  {
+    "id": "ts-cannot-find-name-web",
+    "category": "typescript_build_failure",
+    "check_name": "web_build_validation",
+    "package": "apps/web",
+    "changed_files": ["apps/web/src/App.tsx"],
+    "error_text": "src/App.tsx(21,13): error TS2304: Cannot find name 'variabledoesnotexist'.",
+    "expected_paths": ["apps/web/src/App.tsx"]
+  },
+  {
+    "id": "ts-main-render-break-web",
+    "category": "typescript_build_failure",
+    "check_name": "web_build_validation",
+    "package": "apps/web",
+    "changed_files": ["apps/web/src/main.tsx"],
+    "error_text": "src/main.tsx(7,21): error TS1005: ',' expected.",
+    "expected_paths": ["apps/web/src/main.tsx"]
+  },
+  {
+    "id": "vite-config-import-failure",
+    "category": "module_resolution_failure",
+    "check_name": "web_build_validation",
+    "package": "apps/web",
+    "changed_files": ["apps/web/vite.config.ts"],
+    "error_text": "failed to load config from apps/web/vite.config.ts Error: Cannot find module '@vitejs/plugin-react'",
+    "expected_paths": ["apps/web/vite.config.ts", "apps/web/package.json"]
+  },
+  {
+    "id": "tsconfig-web-invalid-option",
+    "category": "config_failure",
+    "check_name": "web_build_validation",
+    "package": "apps/web",
+    "changed_files": ["apps/web/tsconfig.json"],
+    "error_text": "error TS5023: Unknown compiler option 'jsxFactoryy' in apps/web/tsconfig.json",
+    "expected_paths": ["apps/web/tsconfig.json"]
+  },
+  {
+    "id": "api-import-missing",
+    "category": "typescript_build_failure",
+    "check_name": "api_build_validation",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/app.controller.ts"],
+    "error_text": "src/app.controller.ts(3,29): error TS2307: Cannot find module './anywhere' or its corresponding type declarations.",
+    "expected_paths": ["apps/api/src/app.controller.ts"]
+  },
+  {
+    "id": "api-module-syntax-break",
+    "category": "typescript_build_failure",
+    "check_name": "api_build_validation",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/app.module.ts"],
+    "error_text": "src/app.module.ts(5,1): error TS1128: Declaration or statement expected.",
+    "expected_paths": ["apps/api/src/app.module.ts"]
+  },
+  {
+    "id": "api-main-invalid-parameter",
+    "category": "typescript_build_failure",
+    "check_name": "api_build_validation",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/main.ts"],
+    "error_text": "src/main.ts(5,30): error TS1005: ',' expected.",
+    "expected_paths": ["apps/api/src/main.ts"]
+  },
+  {
+    "id": "api-test-script-runtime-reference",
+    "category": "test_failure",
+    "check_name": "api_unit_tests",
+    "package": "apps/api",
+    "changed_files": ["apps/api/scripts/run-tests.js"],
+    "error_text": "ReferenceError: anything is not defined at Object.<anonymous> (apps/api/scripts/run-tests.js:7:15)",
+    "expected_paths": ["apps/api/scripts/run-tests.js"]
+  },
+  {
+    "id": "api-test-assertion-failure",
+    "category": "test_failure",
+    "check_name": "api_unit_tests",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/app.service.ts", "apps/api/scripts/run-tests.js"],
+    "error_text": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal: 4 !== 3 at main (apps/api/scripts/run-tests.js:19:10)",
+    "expected_paths": ["apps/api/scripts/run-tests.js", "apps/api/src/app.service.ts"]
+  },
+  {
+    "id": "api-health-regression",
+    "category": "test_failure",
+    "check_name": "api_unit_tests",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/app.service.ts"],
+    "error_text": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal: false !== true at main (apps/api/scripts/run-tests.js:8:10)",
+    "expected_paths": ["apps/api/scripts/run-tests.js", "apps/api/src/app.service.ts"]
+  },
+  {
+    "id": "dependency-audit-api",
+    "category": "dependency_scan",
+    "check_name": "dependency_scan",
+    "package": "apps/api",
+    "changed_files": ["apps/api/package.json", "apps/api/package-lock.json"],
+    "error_text": "npm audit --audit-level=high failed in apps/api with 8 vulnerabilities including multer and qs",
+    "expected_paths": ["apps/api/package.json", "apps/api/package-lock.json"]
+  },
+  {
+    "id": "dependency-audit-web",
+    "category": "dependency_scan",
+    "check_name": "dependency_scan",
+    "package": "apps/web",
+    "changed_files": ["apps/web/package.json", "apps/web/package-lock.json"],
+    "error_text": "npm audit reported 2 vulnerabilities in apps/web during dependency scan",
+    "expected_paths": ["apps/web/package.json", "apps/web/package-lock.json"]
+  },
+  {
+    "id": "workflow-unknown-check",
+    "category": "config_failure",
+    "check_name": "config_validation",
+    "package": ".github",
+    "changed_files": [".github/workflows/scripts/run-orchestrator-checks.js", ".orchestrator.yml"],
+    "error_text": "Error: Unknown check in execution set: lint_validation",
+    "expected_paths": [".github/workflows/scripts/run-orchestrator-checks.js", ".orchestrator.yml"]
+  },
+  {
+    "id": "workflow-invalid-yaml",
+    "category": "config_failure",
+    "check_name": "config_validation",
+    "package": ".github",
+    "changed_files": [".github/workflows/ai-orchestrator-execution.yml"],
+    "error_text": "GitHub Actions workflow is not valid. .github/workflows/ai-orchestrator-execution.yml (Line: 17, Col: 9): Unexpected value",
+    "expected_paths": [".github/workflows/ai-orchestrator-execution.yml"]
+  },
+  {
+    "id": "orchestrator-config-break",
+    "category": "config_failure",
+    "check_name": "config_validation",
+    "package": "repo",
+    "changed_files": [".orchestrator.yml"],
+    "error_text": "Config validation failed for .orchestrator.yml: missing checks.build_validation.commands",
+    "expected_paths": [".orchestrator.yml"]
+  },
+  {
+    "id": "missing-entry-html-web",
+    "category": "module_resolution_failure",
+    "check_name": "web_build_validation",
+    "package": "apps/web",
+    "changed_files": ["apps/web/index.html", "apps/web/src/main.tsx"],
+    "error_text": "Could not resolve entry module \"index.html\" while building apps/web",
+    "expected_paths": ["apps/web/index.html", "apps/web/src/main.tsx"]
+  },
+  {
+    "id": "css-parse-break",
+    "category": "typescript_build_failure",
+    "check_name": "web_build_validation",
+    "package": "apps/web",
+    "changed_files": ["apps/web/src/styles.css"],
+    "error_text": "[vite:css] [postcss] apps/web/src/styles.css:12:3: Unknown word",
+    "expected_paths": ["apps/web/src/styles.css"]
+  },
+  {
+    "id": "api-bootstrap-runtime",
+    "category": "generic_command_failure",
+    "check_name": "api_build_validation",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/main.ts"],
+    "error_text": "TypeError: bootstrap is not a function in apps/api/src/main.ts",
+    "expected_paths": ["apps/api/src/main.ts"]
+  },
+  {
+    "id": "readme-config-mismatch",
+    "category": "config_failure",
+    "check_name": "documentation_review",
+    "package": "repo",
+    "changed_files": ["README.md", ".orchestrator.yml"],
+    "error_text": "Documentation review failed: README.md references build_validation but orchestrator now expects api_build_validation",
+    "expected_paths": ["README.md", ".orchestrator.yml"]
+  },
+  {
+    "id": "api-controller-route-break",
+    "category": "typescript_build_failure",
+    "check_name": "api_build_validation",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/app.controller.ts", "apps/api/src/app.service.ts"],
+    "error_text": "src/app.controller.ts(14,28): error TS2339: Property 'getOverview' does not exist on type 'AppService'.",
+    "expected_paths": ["apps/api/src/app.controller.ts", "apps/api/src/app.service.ts"]
+  },
+  {
+    "id": "api-service-type-break",
+    "category": "typescript_build_failure",
+    "check_name": "api_build_validation",
+    "package": "apps/api",
+    "changed_files": ["apps/api/src/app.service.ts"],
+    "error_text": "src/app.service.ts(27,9): error TS2322: Type 'string' is not assignable to type 'number'.",
+    "expected_paths": ["apps/api/src/app.service.ts"]
+  }
+]

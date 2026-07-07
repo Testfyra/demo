@@ -1,0 +1,393 @@
+{
+  "ok": true,
+  "scenarios": 22,
+  "passed": 22,
+  "failed": 0,
+  "pass_rate": 100,
+  "results": [
+    {
+      "id": "ts-missing-comma-web",
+      "category": "typescript_build_failure",
+      "expected_count": 2,
+      "hit_count": 2,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/src/App.tsx",
+        "apps/web/src/main.tsx"
+      ],
+      "returned_paths": [
+        "apps/web/src/App.tsx",
+        "apps/web/src/styles.css",
+        "apps/web/src/main.tsx",
+        "apps/web/tsconfig.json",
+        "apps/web/vite.config.ts"
+      ]
+    },
+    {
+      "id": "ts-cannot-find-name-web",
+      "category": "typescript_build_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/src/App.tsx"
+      ],
+      "returned_paths": [
+        "apps/web/src/App.tsx",
+        "apps/web/src/styles.css",
+        "apps/web/src/main.tsx",
+        "apps/web/index.html",
+        "apps/web/package-lock.json"
+      ]
+    },
+    {
+      "id": "ts-main-render-break-web",
+      "category": "typescript_build_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/src/main.tsx"
+      ],
+      "returned_paths": [
+        "apps/web/src/main.tsx",
+        "apps/web/src/App.tsx",
+        "apps/web/src/styles.css",
+        "apps/web/index.html",
+        "apps/web/package-lock.json"
+      ]
+    },
+    {
+      "id": "vite-config-import-failure",
+      "category": "module_resolution_failure",
+      "expected_count": 2,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/vite.config.ts",
+        "apps/web/package.json"
+      ],
+      "returned_paths": [
+        "apps/web/vite.config.ts",
+        "apps/web/src/App.tsx",
+        "apps/web/tsconfig.json",
+        "apps/web/src/main.tsx",
+        "apps/web/src/styles.css"
+      ]
+    },
+    {
+      "id": "tsconfig-web-invalid-option",
+      "category": "config_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/tsconfig.json"
+      ],
+      "returned_paths": [
+        "apps/web/tsconfig.json",
+        "apps/web/src/App.tsx",
+        "apps/web/src/styles.css",
+        "apps/web/src/main.tsx",
+        "apps/web/vite.config.ts"
+      ]
+    },
+    {
+      "id": "api-import-missing",
+      "category": "typescript_build_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/src/app.controller.ts"
+      ],
+      "returned_paths": [
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.module.ts",
+        "apps/api/src/app.service.ts",
+        "apps/api/src/main.ts",
+        "apps/api/package-lock.json"
+      ]
+    },
+    {
+      "id": "api-module-syntax-break",
+      "category": "typescript_build_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/src/app.module.ts"
+      ],
+      "returned_paths": [
+        "apps/api/src/app.module.ts",
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.service.ts",
+        "apps/api/src/main.ts",
+        "apps/api/package-lock.json"
+      ]
+    },
+    {
+      "id": "api-main-invalid-parameter",
+      "category": "typescript_build_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/src/main.ts"
+      ],
+      "returned_paths": [
+        "apps/api/src/main.ts",
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.module.ts",
+        "apps/api/src/app.service.ts",
+        "apps/api/package-lock.json"
+      ]
+    },
+    {
+      "id": "api-test-script-runtime-reference",
+      "category": "test_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/scripts/run-tests.js"
+      ],
+      "returned_paths": [
+        "apps/api/scripts/run-tests.js",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json"
+      ]
+    },
+    {
+      "id": "api-test-assertion-failure",
+      "category": "test_failure",
+      "expected_count": 2,
+      "hit_count": 2,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/scripts/run-tests.js",
+        "apps/api/src/app.service.ts"
+      ],
+      "returned_paths": [
+        "apps/api/scripts/run-tests.js",
+        "apps/api/src/app.service.ts",
+        "apps/api/src/main.ts",
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.module.ts"
+      ]
+    },
+    {
+      "id": "api-health-regression",
+      "category": "test_failure",
+      "expected_count": 2,
+      "hit_count": 2,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/scripts/run-tests.js",
+        "apps/api/src/app.service.ts"
+      ],
+      "returned_paths": [
+        "apps/api/src/app.service.ts",
+        "apps/api/scripts/run-tests.js",
+        "apps/api/src/main.ts",
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.module.ts"
+      ]
+    },
+    {
+      "id": "dependency-audit-api",
+      "category": "dependency_scan",
+      "expected_count": 2,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/package.json",
+        "apps/api/package-lock.json"
+      ],
+      "returned_paths": [
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json"
+      ]
+    },
+    {
+      "id": "dependency-audit-web",
+      "category": "dependency_scan",
+      "expected_count": 2,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/package.json",
+        "apps/web/package-lock.json"
+      ],
+      "returned_paths": [
+        "apps/web/package-lock.json",
+        "apps/web/package-lock.json",
+        "apps/web/package-lock.json",
+        "apps/web/package-lock.json",
+        "apps/web/package-lock.json"
+      ]
+    },
+    {
+      "id": "workflow-unknown-check",
+      "category": "config_failure",
+      "expected_count": 2,
+      "hit_count": 2,
+      "passed": true,
+      "expected_paths": [
+        ".github/workflows/scripts/run-orchestrator-checks.js",
+        ".orchestrator.yml"
+      ],
+      "returned_paths": [
+        ".github/workflows/scripts/run-orchestrator-checks.js",
+        ".orchestrator.yml",
+        ".github/workflows/scripts/extract-failure-signature.js",
+        ".github/workflows/scripts/assemble-remediation-context.js",
+        ".github/workflows/scripts/capture-command-output.js"
+      ]
+    },
+    {
+      "id": "workflow-invalid-yaml",
+      "category": "config_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        ".github/workflows/ai-orchestrator-execution.yml"
+      ],
+      "returned_paths": [
+        ".github/workflows/ai-orchestrator-execution.yml",
+        ".github/workflows/scripts/extract-failure-signature.js",
+        ".github/workflows/scripts/retrieve-relevant-chunks.js",
+        ".github/workflows/scripts/run-orchestrator-checks.js",
+        ".github/workflows/scripts/build-repo-chunks.js"
+      ]
+    },
+    {
+      "id": "orchestrator-config-break",
+      "category": "config_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        ".orchestrator.yml"
+      ],
+      "returned_paths": [
+        ".orchestrator.yml",
+        ".ai-orchestrator/benchmarks/common-build-failures.json",
+        ".ai-orchestrator/benchmarks/common-build-failures.json",
+        ".ai-orchestrator/remediation-plan-jenkins-1782903867333.json",
+        ".postman/resources.yaml"
+      ]
+    },
+    {
+      "id": "missing-entry-html-web",
+      "category": "module_resolution_failure",
+      "expected_count": 2,
+      "hit_count": 2,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/index.html",
+        "apps/web/src/main.tsx"
+      ],
+      "returned_paths": [
+        "apps/web/src/main.tsx",
+        "apps/web/index.html",
+        "apps/web/src/App.tsx",
+        "apps/web/src/styles.css",
+        "apps/web/package-lock.json"
+      ]
+    },
+    {
+      "id": "css-parse-break",
+      "category": "typescript_build_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/web/src/styles.css"
+      ],
+      "returned_paths": [
+        "apps/web/src/styles.css",
+        "apps/web/src/App.tsx",
+        "apps/web/src/main.tsx",
+        "apps/web/vite.config.ts",
+        "apps/web/tsconfig.json"
+      ]
+    },
+    {
+      "id": "api-bootstrap-runtime",
+      "category": "generic_command_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/src/main.ts"
+      ],
+      "returned_paths": [
+        "apps/api/src/main.ts",
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.module.ts",
+        "apps/api/src/app.service.ts",
+        "apps/api/package-lock.json"
+      ]
+    },
+    {
+      "id": "readme-config-mismatch",
+      "category": "config_failure",
+      "expected_count": 2,
+      "hit_count": 2,
+      "passed": true,
+      "expected_paths": [
+        "README.md",
+        ".orchestrator.yml"
+      ],
+      "returned_paths": [
+        ".orchestrator.yml",
+        "README.md",
+        ".ai-orchestrator/benchmarks/common-build-failures.json",
+        ".ai-orchestrator/benchmarks/common-build-failures.json",
+        ".ai-orchestrator/remediation-plan-jenkins-1782903867333.json"
+      ]
+    },
+    {
+      "id": "api-controller-route-break",
+      "category": "typescript_build_failure",
+      "expected_count": 2,
+      "hit_count": 2,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.service.ts"
+      ],
+      "returned_paths": [
+        "apps/api/src/app.controller.ts",
+        "apps/api/src/app.service.ts",
+        "apps/api/src/app.module.ts",
+        "apps/api/src/main.ts",
+        "apps/api/package-lock.json"
+      ]
+    },
+    {
+      "id": "api-service-type-break",
+      "category": "typescript_build_failure",
+      "expected_count": 1,
+      "hit_count": 1,
+      "passed": true,
+      "expected_paths": [
+        "apps/api/src/app.service.ts"
+      ],
+      "returned_paths": [
+        "apps/api/src/app.service.ts",
+        "apps/api/src/main.ts",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json",
+        "apps/api/package-lock.json"
+      ]
+    }
+  ]
+}
