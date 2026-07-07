@@ -32,6 +32,13 @@ checks:
       - npm install
       - npm test
 
+  e2e_tests:
+    description: Run demo end-to-end checks against the API package
+    workingDirectory: apps/api
+    commands:
+      - npm install
+      - npm test
+
   web_dependency_install:
     description: Install web dependencies
     workingDirectory: apps/web
