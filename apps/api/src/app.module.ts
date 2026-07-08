@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-console.log(nothign);
+console.log(nothing);
 @Module({
   controllers: [AppController],
   providers: [AppService],
