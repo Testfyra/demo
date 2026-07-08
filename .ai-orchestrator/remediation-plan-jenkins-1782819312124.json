@@ -1,0 +1,21 @@
+{
+  "sourceExecutionId": "jenkins-1782819312124",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "2026-06-30t11-35-29-263z-src-app-module-ts-8-3-error-ts1146-declaration-expected",
+  "plainEnglishExplanation": "The CI pipeline failed because the TypeScript build hit a compile-time syntax or parsing error. Exact error: [2026-06-30T11:35:29.263Z] src/main.ts(5,32): error TS1005: ';' expected.",
+  "rootCause": "[2026-06-30T11:35:29.263Z] src/main.ts(5,32): error TS1005: ';' expected.",
+  "recommendedFix": "Inspect the referenced source file, correct the invalid statement introduced in the patch, and rerun the build validation. Exact error: [2026-06-30T11:35:29.263Z] src/main.ts(5,32): error TS1005: ';' expected.",
+  "approvalMode": "fix_pr",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode.",
+    "Current policy decision is manual_review_required, so automated merge is not allowed."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "Inspect the failing Jenkins command or source change shown in the error and rerun the build after applying a targeted fix.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
