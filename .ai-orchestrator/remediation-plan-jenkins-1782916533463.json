@@ -1,0 +1,21 @@
+{
+  "sourceExecutionId": "jenkins-1782916533463",
+  "repository": "Testfyra/demo",
+  "originalBranch": "main",
+  "failureSignature": "2026-07-01t14-35-55-259z-src-app-module-ts-3-36-error-ts1002-unterminated-string",
+  "plainEnglishExplanation": "The build failed with: ERROR: script returned exit code 1",
+  "rootCause": "ERROR: script returned exit code 1",
+  "recommendedFix": "Inspect the failing Jenkins command or source change shown in the error and rerun the build after applying a targeted fix.",
+  "approvalMode": "fix_pr",
+  "approvalGuardrails": [
+    "Do not commit directly to the original branch or main branch.",
+    "Create a dedicated remediation branch for the proposed fix.",
+    "Run CI, test, and security validation on the remediation branch before merge.",
+    "Keep merge approval manual in the current POC safe mode.",
+    "Current policy decision is manual_review_required, so automated merge is not allowed."
+  ],
+  "impactOfApproval": "A remediation branch and draft PR will be created, then CI/test/security checks can run without touching the original branch.",
+  "impactOfNonApproval": "The failing branch remains unchanged, delivery stays blocked, and the same issue may recur without a recorded validated fix.",
+  "recommendedAction": "Inspect the failing Jenkins command or source change shown in the error and rerun the build after applying a targeted fix.",
+  "safeMode": "No direct changes are pushed to the original branch. A remediation branch and draft PR are created for review."
+}
