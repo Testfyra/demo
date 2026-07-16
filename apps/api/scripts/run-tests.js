@@ -8,7 +8,7 @@ async function main() {
   assert.equal(health.ok, true);
   assert.equal(health.service, 'demo-api');
   assert.ok(health.timestamp);
-
+  console.log("health",health);
   const overview = service.getOverview();
   assert.equal(overview.product, 'AI Orchestrator Demo');
   assert.equal(Array.isArray(overview.tasks), true);
