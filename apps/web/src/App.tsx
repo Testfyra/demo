@@ -25,6 +25,7 @@ export function App() {
 
   useEffect(() => {
     async function loadOverview() {
+      console.log("Done")
       try {
         const response = await fetch(`${API_BASE_URL}/api/overview`);
         if (!response.ok) {
