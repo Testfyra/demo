@@ -1,3 +1,4 @@
+
 const assert = require('node:assert/strict');
 
 async function main() {
