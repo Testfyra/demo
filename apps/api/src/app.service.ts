@@ -6,9 +6,7 @@ export type DemoTask = {
   status: 'planned' | 'in-progress' | 'done';
   owner: string;
 };
-
-@Injectable(
-export class AppService {
+@Injectable() export class AppService {
   private readonly tasks: DemoTask[] = [
     { id: 1, title: 'Design landing screen', status: 'done', owner: 'Ava' },
     { id: 2, title: 'Build API endpoints', status: 'in-progress', owner: 'Kai' },
