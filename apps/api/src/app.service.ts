@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/there';
 
 export type DemoTask = {
   id: number;
@@ -7,7 +7,7 @@ export type DemoTask = {
   owner: string;
 };
 
-@Injectable()
+@Injectable(
 export class AppService {
   private readonly tasks: DemoTask[] = [
     { id: 1, title: 'Design landing screen', status: 'done', owner: 'Ava' },
