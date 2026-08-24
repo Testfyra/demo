@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 type Overview = {
   product: string;
   summary: string;
-  metrics
+  metrics: {
     totalTasks: number;
     completedTasks: number;
     activeTasks: number;
@@ -15,7 +15,6 @@ type Overview = {
     owner: string;
   }>;
 };
-
 const API_BASE_URL = 'http://localhost:3001';
 
 export function App() {
