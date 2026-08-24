@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 type Overview = {
   product: string;
   summary: string;
-  metrics: 
+  metrics
     totalTasks: number;
     completedTasks: number;
     activeTasks: number;
