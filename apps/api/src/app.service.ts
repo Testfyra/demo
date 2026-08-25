@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+import { DemoTask } from './demo-task.interface';
+
 import { DemoTask } from './demo-task.interface';
 
 export type DemoTask = {
