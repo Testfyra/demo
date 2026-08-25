@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/there';
+import { Injectable } from '@nestjs/common';
 
 export type DemoTask = {
   id: number;
