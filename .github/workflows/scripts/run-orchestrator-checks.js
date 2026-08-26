@@ -12,6 +12,8 @@ const CHECK_ALIASES = {
   integration_tests: 'api_unit_tests',
   e2e_tests: 'api_unit_tests',
   manual_approval: 'api_unit_tests',
+  code_review: 'api_unit_tests',
+
 
 };
 
