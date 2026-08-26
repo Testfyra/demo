@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 export type DemoTask = {
   id: number;
   title: string;
-  status: 'planned' | 'in-progress' | 'done'
+  status: 'planned' | 'in-progress' | 'done';
   owner: string;
 };
 @Injectable() export class AppService {
@@ -17,7 +17,7 @@ export type DemoTask = {
     return {
       ok: true,
       service: 'demo-api',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
   }
 
