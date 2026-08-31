@@ -33,6 +33,8 @@ jobs:
           echo "Environment: ${{ inputs.environment }}"
           echo "Recommended Checks: ${{ inputs.recommended_checks }}"
 
+# Add missing semicolon and ensure correct indentation for TypeScript compilation
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
