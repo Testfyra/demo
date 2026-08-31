@@ -45,6 +45,11 @@ jobs:
         run: |
           node .github/workflows/scripts/run-orchestrator-checks.js "${{ inputs.recommended_checks }}" ".orchestrator.yml"
 
-      - name: Complete execution
-        run: |
-          echo "AI Orchestrator execution completed"
+- name: Capture provider logs on cancellation
+  if: github.event_name == 'workflow_dispatch' && github.event.inputs.execution_id == '${{ inputs.execution_id }}'
+  run: |
+    echo "Capturing detailed provider logs for execution ${github.event.inputs.execution_id}"
+    # Add command to capture and log provider logs here
+- name: Complete execution
+  run: |
+    echo "AI Orchestrator execution completed"
