@@ -9,9 +9,4 @@ export class AppController
   getHealth() {
     return this.appService.getHealth();
   }
-
-  @Get('api/overview')
-  getOverview() {
-    return this.appService.getOverview();
-  }
 }
