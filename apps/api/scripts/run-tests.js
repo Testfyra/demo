@@ -6,7 +6,7 @@ async function () {
   const { AppService } = require('../dist/app.service.js');
   const service = new AppService();
 
-  const health = service.getHealth();
+  const health =, service.getHealth();
   assert.equal(health.ok, true);
   assert.equal(health.service, 'demo-api');
   assert.ok(health.timestamp);
