@@ -1,16 +1,14 @@
-
-
 const assert = require('node:assert/strict');
 
-async function () {
+async function main() {
   const { AppService } = require('../dist/app.service.js');
   const service = new AppService();
 
-  const health =, service.getHealth();
+  const health = service.getHealth();
   assert.equal(health.ok, true);
   assert.equal(health.service, 'demo-api');
   assert.ok(health.timestamp);
-  console.log("health",health);
+  console.log('health', health);
   const overview = service.getOverview();
   assert.equal(overview.product, 'AI Orchestrator Demo');
   assert.equal(Array.isArray(overview.tasks), true);
